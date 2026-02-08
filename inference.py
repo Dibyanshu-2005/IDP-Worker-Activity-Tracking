@@ -1,10 +1,16 @@
 from ultralytics import YOLO
 
 def run_inference(video_path):
-    model = YOLO("yolov8n.pt") # yolo version 8 nano model
+    model = YOLO("yolov8l.pt") # Trying a better version 
+    
+    '''
+    I tried yolov8 nano, medium and large, we have to select one, and understand 
+    the trade-off between accuracy and speed. Would be great if you can test with yolo11 family models.
+    '''
 
     model.predict(
         source=video_path,
+        classes=[0],  # Only detect person class
         show=True,      
         save=True,
         conf=0.25
