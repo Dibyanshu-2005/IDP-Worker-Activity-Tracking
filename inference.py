@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 def run_inference(video_path):
-    model = YOLO("yolov8ngit i.pt")
+    model = YOLO("yolov8n.pt")
 
     model.predict(
         source=video_path,
