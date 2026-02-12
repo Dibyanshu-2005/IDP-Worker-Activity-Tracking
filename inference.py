@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 def run_inference(video_path):
-    model = YOLO("yolov8l.pt")  # yolov8l is solid for accuracy/speed balance
+    model = YOLO("yolo26m.pt")  # Experimenting with yolo26
     
     model.track(  # Changed from predict()
         source=video_path,
@@ -11,6 +11,8 @@ def run_inference(video_path):
         iou=0.7,  # Tune for overlaps
         save=True,  # Saves video + labels
         show=True,
+        tracker="./botsort.yaml",  # Experimented with botsort 
+        # (custom updates made, reid enabled, and track_buffer increased to 120)
         project="runs/detect",  # Output folder
         name="track_experiment"  # Unique run name
     )
